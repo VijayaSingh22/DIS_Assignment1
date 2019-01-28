@@ -41,6 +41,11 @@ namespace Assignment1_S19
             computeFrequency(arr);
             Console.ReadKey();
 
+            //While working on this assignment, It helped me in thinking solutions of a problem
+            //logically and also , many methods which can be used in c# were unknown to me,
+            //So while googling out, It helped me let know how one methods can be written in different
+            //different ways.
+            //helped me in understanding how loop and conditional checking works.
         }
         //prime number function
         public static void printPrimeNumbers(int x, int y)
@@ -78,7 +83,7 @@ namespace Assignment1_S19
             try
             {
                 double seriesResult = 0;
-                for (double i = 1; i < n; i++)
+                for (double i = 1; i <= n; i++)
                 {
                     if (i % 2 == 0)                             // To check if the term is evrn or odd
                     {
@@ -119,12 +124,12 @@ namespace Assignment1_S19
                 long finalValue = 0;
                 long binaryValue = 0;
                 long decimalValue = n;
-                while (n > 0)
+                while (n > 0) // to run till we dont get zero remainder
                 {
-                    long remainder = n % 2; // to take the remainder for 
-                    long dividend = n / 2;
+                    long remainder = n % 2; // to take the remainder for binary answer
+                    long dividend = n / 2; // to take it as divident for next iteration
                     n = dividend;
-                    finalValue = long.Parse(binaryValue.ToString() + remainder.ToString());
+                    finalValue = long.Parse(binaryValue.ToString() + remainder.ToString()); //concat the value to make binary final output
                     binaryValue = finalValue;
                 }
                 return finalValue;
@@ -143,15 +148,15 @@ namespace Assignment1_S19
             try
             {
                 long decimalValue = 0;
-                long binaryValue = n;
+                long binaryValue = n; 
                 long right = 0;
                 int place = 0;
-                while (n!=0)
+                while (n!=0) // 
                 {
-                    right = n % 10;
-                    n = n / 10;
-                    decimalValue += right * nPowerOfTwo(place);
-                    place = place + 1;
+                    right = n % 10; //to take the right most digit
+                    n = n / 10; // to store the lest remaining part
+                    decimalValue += right * nPowerOfTwo(place); //multiply with n power of 2
+                    place = place + 1; //to do same calculation for next digit place
                 }
                 return decimalValue;
             }
@@ -211,17 +216,17 @@ namespace Assignment1_S19
             Dictionary<int, int> dictionary = new Dictionary<int, int>();
             try
             {
-                int[] arr = new int[100];
+                int[] arr = new int[100]; // create an int array and store given value in this
                 arr = a;
-                for(int i=0; i<a.Length; i++)
+                for(int i=0; i<a.Length; i++) // loop to get through all elements
                 {
-                    if(!(dictionary.ContainsKey(a[i])))
+                    if(!(dictionary.ContainsKey(a[i]))) //if value is not there in dictionary then it will run
                         {
-                        dictionary.Add(a[i], 1);
+                        dictionary.Add(a[i], 1); // value will be stored as "key" in the dictionary
                     }
                     else
                     {
-                        dictionary[a[i]] = dictionary[a[i]] + 1;
+                        dictionary[a[i]] = dictionary[a[i]] + 1; // increase it by 1 if the same number gets repeated in array and that is already stored as key in dictionary
                     }
                 }
                 Console.WriteLine("Number  Frequency");
